@@ -75,10 +75,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic.cloud'])
 .config(function($ionicCloudProvider) {
   $ionicCloudProvider.init({
     "core": {
-      "app_id": "cf4ffefc"
+      "app_id": "e866471d"
     },
     "push": {
-      "sender_id": "224765076197",
+      "sender_id": "299175733792",
       "pluginConfig": {
         "ios": {
           "badge": true,
