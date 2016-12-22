@@ -26,6 +26,7 @@ angular.module('starter.controllers', [])
 
   // Open the login modal
   $scope.login = function() {
+    alert(JSON.stringify($ionicPush, null, 2));
     $scope.modal.show();
   };
 
@@ -34,13 +35,7 @@ angular.module('starter.controllers', [])
     console.log('Doing login', $scope.loginData);
 
     console.log('aqui meu');
-    $ionicPush.register().then(function(t){
-      console.log('aqui meu2');
-      return $ionicPush.saveToken(t);
-    }).then(function(t){
-      console.log('Token saved:', t.token);
-      alert('token: ' + t.token);
-    });
+    
     console.log('AQUI bIXO');
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -50,12 +45,12 @@ angular.module('starter.controllers', [])
   };
 
   $scope.$on('cloud:push:notification', function(event, data) {
-    // console.log(JSON.stringify(data));
-    alert('clicou!!');
+    //console.log();
+    alert('clicou!!' + JSON.stringify(data, null, 2));
   });
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('PlaylistsCtrl', function($scope, $ionicPush) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },

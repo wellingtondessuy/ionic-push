@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'ionic.cloud'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicPush) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,6 +19,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic.cloud'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    $ionicPush.register().then(function(t){
+      console.log('aqui meu2');
+      return $ionicPush.saveToken(t);
+    }).then(function(t){
+      console.log('Token saved:', t.token);
+      alert('Token: ' + JSON.stringify(t, null, 2));
+    });
   });
 })
 
